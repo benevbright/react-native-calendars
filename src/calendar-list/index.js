@@ -11,7 +11,7 @@ import dateutils from '../dateutils';
 import Calendar from '../calendar';
 import CalendarListItem from './item';
 
-const calendarHeight = 360;
+calendarHeight = 360;
 class CalendarList extends Component {
   static propTypes = {
     ...Calendar.propTypes,
@@ -27,10 +27,15 @@ class CalendarList extends Component {
 
     // Enable or disable vertical scroll indicator. Default = false
     showScrollIndicator: PropTypes.bool,
+
+    // Height of Calendar in CalendarList
+    calendarHeight: PropTypes.number,
   };
 
   constructor(props) {
     super(props);
+    if(props.calendarHeight != undefined)
+      calendarHeight = props.calendarHeight;
     this.pastScrollRange = props.pastScrollRange === undefined ? 50 : props.pastScrollRange;
     this.futureScrollRange = props.futureScrollRange === undefined ? 50 : props.futureScrollRange;
     this.style = styleConstructor(props.theme);
@@ -159,9 +164,34 @@ class CalendarList extends Component {
     return diffMonths;
   }
 
+  scrollToOffset = (param) => {
+    // console.log('stop', y);
+    this.listView.scrollToOffset(param);
+  }
+/*
+  initialScroll = true;
+  flastlistOffsetY = 0;
+  onScroll = (e) => {
+    this.flastlistOffsetY = e.nativeEvent.contentOffset.y;
+    this.props.onScroll(e);
+
+    if(this.initialScroll){
+      this.initialScroll = false;
+      console.log('initial Scroll', this.flastlistOffsetY, this.screenHeight);
+      this.scrollToDay(new Date(), -this.screenHeight/2, false);
+    }
+  }
+
+  screenHeight = 0;
+  onLayout = (e) => {
+    this.screenHeight = e.nativeEvent.layout.height;
+  }
+  */
+
   render() {
     return (
       <FlatList
+        
         ref={(c) => this.listView = c}
         //scrollEventThrottle={1000}
         style={[this.style.container, this.props.style]}
@@ -176,8 +206,33 @@ class CalendarList extends Component {
         showsVerticalScrollIndicator={this.props.showScrollIndicator !== undefined ? this.props.showScrollIndicator : false}
         scrollEnabled={this.props.scrollingEnabled !== undefined ? this.props.scrollingEnabled : true}
         keyExtractor={(item, index) => index}
-        initialScrollIndex={this.state.openDate ? this.getMonthIndex(this.state.openDate) : false}
+        initialScrollIndex={this.state.openDate ? this.getMonthIndex(this.state.openDate)-1 : false}
         getItemLayout={this.getItemLayout}
+
+        // onStartShouldSetResponder={this.props.onStartShouldSetResponder}
+        // onMoveShouldSetResponder={this.props.onMoveShouldSetResponder}
+        // onResponderGrant={this.props.onResponderGrant}
+        // onResponderReject={this.props.onResponderReject}
+        // onResponderMove={this.props.onResponderMove}
+        // onResponderRelease={this.props.onResponderRelease}
+        // onResponderTerminationRequest={this.props.onResponderTerminationRequest}
+        // onResponderTerminate={this.props.onResponderTerminate}
+        // onStartShouldSetResponderCapture={this.props.onStartShouldSetResponderCapture}
+        // onMoveShouldSetResponderCapture={this.props.onMoveShouldSetResponderCapture}
+
+        scrollEnabled={this.props.scrollEnabled}
+        onScroll={this.props.onScroll}
+        // onScrollEndDrag={(e)=>console.log('onScrollEndDrag', e.nativeEvent.contentOffset.y)}
+        // onScrollAnimationEnd={(e)=>console.log('onScrollAnimationEnd', e.nativeEvent.contentOffset.y)}
+        // onScrollBeginDrag={(e)=>console.log('onScrollBeginDrag', e.nativeEvent.contentOffset.y)}
+        pointerEvents={this.props.pointerEvents}
+        // onLayout={this.onLayout}
+
+        onTouchStart={this.props.onTouchStart}
+        onTouchMove={this.props.onTouchMove}
+        onTouchEnd={this.props.onTouchEnd}
+        onTouchCancel={this.props.onTouchCancel}
+        onTouchEndCapture={this.props.onTouchEndCapture}
       />
     );
   }

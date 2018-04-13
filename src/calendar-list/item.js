@@ -28,6 +28,7 @@ class CalendarListItem extends Component {
           disableMonthChange
           markedDates={this.props.markedDates}
           markingType={this.props.markingType}
+          hideHeader={this.props.hideHeader}
           hideDayNames={this.props.hideDayNames}
           onDayPress={this.props.onDayPress}
           displayLoadingIndicator={this.props.displayLoadingIndicator}
@@ -37,6 +38,8 @@ class CalendarListItem extends Component {
           monthFormat={this.props.monthFormat}
           dayComponent={this.props.dayComponent}
           disabledByDefault={this.props.disabledByDefault}
+
+          todayLoggingOpened={this.props.todayLoggingOpened}
         />);
     } else {
       const text = row.toString();
