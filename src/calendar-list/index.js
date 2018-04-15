@@ -209,30 +209,6 @@ class CalendarList extends Component {
         initialScrollIndex={this.state.openDate ? this.getMonthIndex(this.state.openDate)-1 : false}
         getItemLayout={this.getItemLayout}
 
-        // onStartShouldSetResponder={this.props.onStartShouldSetResponder}
-        // onMoveShouldSetResponder={this.props.onMoveShouldSetResponder}
-        // onResponderGrant={this.props.onResponderGrant}
-        // onResponderReject={this.props.onResponderReject}
-        // onResponderMove={this.props.onResponderMove}
-        // onResponderRelease={this.props.onResponderRelease}
-        // onResponderTerminationRequest={this.props.onResponderTerminationRequest}
-        // onResponderTerminate={this.props.onResponderTerminate}
-        // onStartShouldSetResponderCapture={this.props.onStartShouldSetResponderCapture}
-        // onMoveShouldSetResponderCapture={this.props.onMoveShouldSetResponderCapture}
-
-        scrollEnabled={this.props.scrollEnabled}
-        onScroll={this.props.onScroll}
-        // onScrollEndDrag={(e)=>console.log('onScrollEndDrag', e.nativeEvent.contentOffset.y)}
-        // onScrollAnimationEnd={(e)=>console.log('onScrollAnimationEnd', e.nativeEvent.contentOffset.y)}
-        // onScrollBeginDrag={(e)=>console.log('onScrollBeginDrag', e.nativeEvent.contentOffset.y)}
-        pointerEvents={this.props.pointerEvents}
-        // onLayout={this.onLayout}
-
-        onTouchStart={this.props.onTouchStart}
-        onTouchMove={this.props.onTouchMove}
-        onTouchEnd={this.props.onTouchEnd}
-        onTouchCancel={this.props.onTouchCancel}
-        onTouchEndCapture={this.props.onTouchEndCapture}
       />
     );
   }
