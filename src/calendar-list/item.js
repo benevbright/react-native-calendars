@@ -39,7 +39,7 @@ class CalendarListItem extends Component {
           dayComponent={this.props.dayComponent}
           disabledByDefault={this.props.disabledByDefault}
 
-          todayLoggingOpened={this.props.todayLoggingOpened}
+          // todayLoggingOpened={this.props.todayLoggingOpened}
         />);
     } else {
       const text = row.toString();
