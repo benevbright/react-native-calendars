@@ -14,11 +14,11 @@ export const textLinkColor = '#00adf5';
 export const textSecondaryColor = '#7a92a5';
 
 export const textDayFontFamily = 'System';
-export const textMonthFontFamily = 'System';
+export const textMonthFontFamily = 'Helvetica';
 export const textDayHeaderFontFamily = 'System';
 
 export const textDayFontSize = 16;
-export const textMonthFontSize = 16;
+export const textMonthFontSize = 20;
 export const textDayHeaderFontSize = 13;
 
 export const calendarBackground = foregroundColor;
@@ -31,7 +31,7 @@ export const textDisabledColor = '#d9e1e8';
 export const dotColor = textLinkColor;
 export const selectedDotColor = foregroundColor;
 export const arrowColor = textLinkColor;
-export const monthTextColor = textDefaultColor;
+export const monthTextColor = 'gray';
 export const agendaDayTextColor = '#7a92a5';
 export const agendaDayNumColor = '#7a92a5';
 export const agendaTodayColor = textLinkColor;
