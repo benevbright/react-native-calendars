@@ -39,6 +39,7 @@ class CalendarListItem extends Component {
           dayComponent={this.props.dayComponent}
           disabledByDefault={this.props.disabledByDefault}
 
+          isDarkTheme={this.props.isDarkTheme}
           // todayLoggingOpened={this.props.todayLoggingOpened}
         />);
     } else {

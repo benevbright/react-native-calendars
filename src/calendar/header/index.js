@@ -5,6 +5,8 @@ import XDate from 'xdate';
 import PropTypes from 'prop-types';
 import styleConstructor from './style';
 import { weekDayNames } from '../../dateutils';
+import * as defaultStyle from '../../style';
+
 
 class CalendarHeader extends Component {
   static propTypes = {
@@ -47,6 +49,8 @@ class CalendarHeader extends Component {
     if (nextProps.hideDayNames !== this.props.hideDayNames) {
       return true;
     }
+    if(nextProps.isDarkTheme != this.props.isDarkTheme)
+      return true;
     return false;
   }
 
@@ -79,6 +83,8 @@ class CalendarHeader extends Component {
         </TouchableOpacity>
       );
     }
+    const appStyle = {...defaultStyle};
+
     let indicator;
     if (this.props.showIndicator) {
       indicator = <ActivityIndicator />;
@@ -88,7 +94,7 @@ class CalendarHeader extends Component {
         <View style={this.style.header}>
           {leftArrow}
           <View style={{ flexDirection: 'row' }}>
-            <Text style={this.style.monthText}>
+            <Text style={{fontSize: appStyle.textMonthFontSize, fontFamily: appStyle.textMonthFontFamily, fontWeight: '500', color: this.props.isDarkTheme?'white':'black', opacity:0.4, margin: 10}}>
               {this.props.month.toString(this.props.monthFormat ? this.props.monthFormat : 'MMMM')}
             </Text>
             {indicator}

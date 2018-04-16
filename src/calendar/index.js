@@ -253,6 +253,7 @@ class Calendar extends Component {
             monthFormat={this.props.monthFormat}
             hideDayNames={this.props.hideDayNames}
             weekNumbers={this.props.showWeekNumbers}
+            isDarkTheme={this.props.isDarkTheme}
           />
         }
         {weeks}
