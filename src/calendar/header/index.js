@@ -97,7 +97,7 @@ class CalendarHeader extends Component {
         <View style={this.style.header}>
           {leftArrow}
           <View style={{ flexDirection: 'row' }}>
-            <Text style={{fontSize: appStyle.textMonthFontSize, fontFamily: appStyle.textMonthFontFamily, fontWeight: '500', color: this.props.isDarkTheme?'white':'black', opacity: isThisMonth ? 0.6 : 0.4, margin: 10}}>
+            <Text style={{fontSize: appStyle.textMonthFontSize, fontFamily: appStyle.textMonthFontFamily, fontWeight: '500', color: this.props.isDarkTheme?'white':'black', opacity: isThisMonth ? 0.65 : 0.4, margin: 10}}>
               {this.props.month.toString(this.props.monthFormat ? this.props.monthFormat : 'MMMM')}
             </Text>
             {indicator}
